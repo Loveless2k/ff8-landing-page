@@ -1,0 +1,17 @@
+// File: /.claude/logs/metrics.schema.jsonl
+// Description: Defines the schema for our observability logs. Each line is a JSON object.
+
+{
+  "timestamp": "2025-11-04T17:05:36Z", // ISO 8601 UTC timestamp
+  "task_id": "feature-issue-123", // The unique ID of the task/issue being worked on
+  "command": "dynamic-task-executor", // The "Director" command that was run
+  "status": "success", // "success" or "fail"
+  "duration_ms": 120530, // Total execution time in milliseconds
+  "agents_used": [ // List of sub-agents invoked
+    "@implementation-test-engineer",
+    "@domain-logic-architect",
+    "@presentation-layer-architect"
+  ],
+  "human_feedback_loops": 1, // How many times human intervention was needed
+  "error_message": null // String containing the error message, if status == "fail"
+}
