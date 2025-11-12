@@ -1,0 +1,190 @@
+{
+  "description": "Automated rule enforcement hooks generated from CLAUDE.md by rule2hook command",
+  "generated_date": "2025-11-11",
+  "project": "Final Fantasy VIII Landing Page",
+  "stack": {
+    "language": "TypeScript",
+    "framework": "Astro",
+    "package_manager": "npm"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "name": "ABOUTME Header Enforcement",
+        "description": "Enforces ABOUTME comment headers on all TypeScript and Astro files before saving",
+        "matcher": "save-file|str-replace-editor",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "FILE_PATH=\"${path:-$FILE_PATH}\"; if [[ \"$FILE_PATH\" =~ \\.(ts|astro)$ ]] && [[ ! \"$FILE_PATH\" =~ node_modules ]] && [[ ! \"$FILE_PATH\" =~ \\.d\\.ts$ ]]; then if [ -f \"$FILE_PATH\" ]; then head -n 3 \"$FILE_PATH\" | grep -q 'ABOUTME:' || (echo \"❌ Error: TypeScript/Astro files MUST start with ABOUTME: header (2 lines, each starting with 'ABOUTME: ')\" && echo \"File: $FILE_PATH\" && exit 1); fi; fi"
+          }
+        ]
+      },
+      {
+        "name": "NO EXCEPTIONS Testing Policy",
+        "description": "Blocks git commits and pushes if tests fail (NO EXCEPTIONS POLICY from CLAUDE.md)",
+        "matcher": "launch-process",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "COMMAND=\"${command:-$COMMAND}\"; if echo \"$COMMAND\" | grep -qE 'git\\s+(commit|push)'; then echo '🧪 Running pre-commit tests (NO EXCEPTIONS policy from CLAUDE.md)...'; if [ -f package.json ] && grep -q '\"test\"' package.json; then npm test || (echo \"❌ Tests failed! Cannot commit/push. Fix tests first.\" && exit 1); else echo \"⚠️  No tests configured yet (will be added in Issue #2)\"; fi; fi"
+          }
+        ]
+      },
+      {
+        "name": "TypeScript No Any Types",
+        "description": "Validates that TypeScript files do not use 'any' type (strict mode enforcement)",
+        "matcher": "save-file|str-replace-editor",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "FILE_PATH=\"${path:-$FILE_PATH}\"; if [[ \"$FILE_PATH\" =~ \\.ts$ ]] && [[ ! \"$FILE_PATH\" =~ node_modules ]] && [[ ! \"$FILE_PATH\" =~ \\.d\\.ts$ ]]; then if [ -f \"$FILE_PATH\" ]; then if grep -n ': any\\|<any>\\|any\\[\\]\\|Array<any>' \"$FILE_PATH\" | grep -v '// @ts-expect-error' | grep -v '// eslint-disable'; then echo \"❌ Error: TypeScript files MUST NOT use 'any' type (CLAUDE.md Architecture Compliance #9)\" && echo \"File: $FILE_PATH\" && exit 1; fi; fi; fi || true"
+          }
+        ]
+      },
+      {
+        "name": "Image Optimization Enforcement",
+        "description": "Prevents use of plain <img> tags in Astro files (must use Astro Image component)",
+        "matcher": "save-file|str-replace-editor",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "FILE_PATH=\"${path:-$FILE_PATH}\"; if [[ \"$FILE_PATH\" =~ \\.astro$ ]] && [[ ! \"$FILE_PATH\" =~ node_modules ]]; then if [ -f \"$FILE_PATH\" ]; then if grep -n '<img' \"$FILE_PATH\" | grep -v '<Image' | grep -v '.svg'; then echo \"❌ Error: Astro files MUST use <Image> component, not <img> tags (CLAUDE.md Architecture Compliance #4)\" && echo \"File: $FILE_PATH\" && echo \"Exception: SVG files can use <img>\" && exit 1; fi; fi; fi || true"
+          }
+        ]
+      },
+      {
+        "name": "Data Isolation Enforcement",
+        "description": "Warns if hardcoded data is detected in component files (should be in src/data/)",
+        "matcher": "save-file|str-replace-editor",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "FILE_PATH=\"${path:-$FILE_PATH}\"; if [[ \"$FILE_PATH\" =~ src/components/.*\\.(astro|tsx?)$ ]] && [[ ! \"$FILE_PATH\" =~ node_modules ]]; then if [ -f \"$FILE_PATH\" ]; then if grep -nE '(const|let|var)\\s+(characters|gameDetails)\\s*=\\s*\\[' \"$FILE_PATH\"; then echo \"⚠️  Warning: Hardcoded data detected in component. Consider moving to src/data/ (CLAUDE.md Architecture Compliance #1)\" && echo \"File: $FILE_PATH\"; fi; fi; fi || true"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "name": "Auto-Format Code",
+        "description": "Automatically formats code with Prettier after file edits",
+        "matcher": "save-file|str-replace-editor",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "FILE_PATH=\"${path:-$FILE_PATH}\"; if [[ \"$FILE_PATH\" =~ \\.(ts|astro|js|jsx|tsx|css|json)$ ]] && [[ ! \"$FILE_PATH\" =~ node_modules ]]; then if [ -f package.json ] && grep -q '\"format\"' package.json; then echo \"✨ Auto-formatting $FILE_PATH...\"; npm run format -- \"$FILE_PATH\" --log-level=error 2>/dev/null || true; fi; fi || true"
+          }
+        ]
+      },
+      {
+        "name": "TypeScript Type Check",
+        "description": "Runs TypeScript compiler check after TypeScript file changes",
+        "matcher": "save-file|str-replace-editor",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "FILE_PATH=\"${path:-$FILE_PATH}\"; if [[ \"$FILE_PATH\" =~ \\.ts$ ]] && [[ ! \"$FILE_PATH\" =~ node_modules ]] && [[ ! \"$FILE_PATH\" =~ \\.d\\.ts$ ]]; then if [ -f tsconfig.json ]; then echo \"🔍 Type-checking TypeScript files...\"; npx tsc --noEmit --pretty 2>&1 | head -n 20 || true; fi; fi || true"
+          }
+        ]
+      },
+      {
+        "name": "Dependency Audit",
+        "description": "Runs npm audit after package.json changes to detect vulnerabilities",
+        "matcher": "save-file|str-replace-editor",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "FILE_PATH=\"${path:-$FILE_PATH}\"; if [[ \"$FILE_PATH\" == *package.json ]] && [[ ! \"$FILE_PATH\" =~ node_modules ]]; then echo \"🔒 Running security audit...\"; npm audit --audit-level=moderate 2>&1 | grep -E '(found|vulnerabilities|High|Critical)' || echo \"✅ No vulnerabilities detected\"; fi || true"
+          }
+        ]
+      },
+      {
+        "name": "Session Context Update Reminder",
+        "description": "Reminds to update session context after significant file changes",
+        "matcher": "save-file|str-replace-editor",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "FILE_PATH=\"${path:-$FILE_PATH}\"; if [[ \"$FILE_PATH\" =~ src/(components|data|scripts)/.*\\.(ts|astro)$ ]] && [[ ! \"$FILE_PATH\" =~ node_modules ]]; then echo \"📝 Reminder: Update .claude/sessions/context_session_*.md after completing this work (CLAUDE.md Sub-Agent Workflow)\"; fi || true"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "name": "Compliance Check Reminder",
+        "description": "Reminds to verify compliance with CLAUDE.md rules before finishing",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"\\n✅ Compliance Check (CLAUDE.md):\" && echo \"   - All tests passing?\" && echo \"   - ABOUTME headers on new files?\" && echo \"   - Session context updated?\" && echo \"   - Performance budget met?\" && echo \"   - Accessibility verified?\" || true"
+          }
+        ]
+      }
+    ]
+  },
+  "rule_mappings": {
+    "ABOUTME_Comments": {
+      "source": "CLAUDE.md ## Code Writing Standards line 246",
+      "hook_type": "PreToolUse",
+      "hook_name": "ABOUTME Header Enforcement",
+      "enforcement": "BLOCKING - Will fail if header missing"
+    },
+    "NO_EXCEPTIONS_Testing": {
+      "source": "CLAUDE.md ## Testing Requirements line 274",
+      "hook_type": "PreToolUse",
+      "hook_name": "NO EXCEPTIONS Testing Policy",
+      "enforcement": "BLOCKING - Will fail if tests fail on git commit/push"
+    },
+    "TypeScript_No_Any": {
+      "source": "CLAUDE.md ## Architecture Compliance #9 line 223",
+      "hook_type": "PreToolUse",
+      "hook_name": "TypeScript No Any Types",
+      "enforcement": "WARNING - Will warn but not block (|| true)"
+    },
+    "Image_Optimization": {
+      "source": "CLAUDE.md ## Architecture Compliance #4 line 205",
+      "hook_type": "PreToolUse",
+      "hook_name": "Image Optimization Enforcement",
+      "enforcement": "WARNING - Will warn but not block (|| true)"
+    },
+    "Data_Isolation": {
+      "source": "CLAUDE.md ## Architecture Compliance #1 line 199",
+      "hook_type": "PreToolUse",
+      "hook_name": "Data Isolation Enforcement",
+      "enforcement": "WARNING - Will warn but not block (|| true)"
+    },
+    "Auto_Format": {
+      "source": "CLAUDE.md ## Development Commands line 138",
+      "hook_type": "PostToolUse",
+      "hook_name": "Auto-Format Code",
+      "enforcement": "NON-BLOCKING - Auto-formats after save"
+    },
+    "TypeScript_Check": {
+      "source": "CLAUDE.md [stack].language = TypeScript",
+      "hook_type": "PostToolUse",
+      "hook_name": "TypeScript Type Check",
+      "enforcement": "NON-BLOCKING - Shows type errors but doesn't block"
+    },
+    "Dependency_Audit": {
+      "source": "CLAUDE.md ## Testing Requirements (security)",
+      "hook_type": "PostToolUse",
+      "hook_name": "Dependency Audit",
+      "enforcement": "NON-BLOCKING - Shows vulnerabilities but doesn't block"
+    },
+    "Session_Context_Reminder": {
+      "source": "CLAUDE.md ## Sub-Agent Workflow & Rules line 240",
+      "hook_type": "PostToolUse",
+      "hook_name": "Session Context Update Reminder",
+      "enforcement": "NON-BLOCKING - Reminder only"
+    },
+    "Compliance_Check": {
+      "source": "CLAUDE.md ## Compliance Check line 300",
+      "hook_type": "Stop",
+      "hook_name": "Compliance Check Reminder",
+      "enforcement": "NON-BLOCKING - Final checklist reminder"
+    }
+  }
+}
+
