@@ -50,6 +50,7 @@ When invoked during the validation phase, you will act as an auditor.
     - **If "Static-Analysis" (or default):** Use tools (like `grep` or linters) to scan the committed code for obvious insecure patterns (e.g., `dangerouslySetInnerHTML`, `password =`, hardcoded secrets).
 4.  **Generate Report:** You MUST post a comment to the GitHub PR (or update the session file) with your findings.
     - **Format:**
+
       ```
       ## 🛡️ Security Validation Report
 

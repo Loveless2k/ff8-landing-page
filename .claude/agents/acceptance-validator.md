@@ -34,6 +34,7 @@ When invoked during the planning phase, you will act as a QA planner.
 2.  **Generate AC:** You will refine the `test_cases.md` into a formal `acceptance_criteria.md` file.
 3.  **Format:** Use Gherkin (Given/When/Then) to define the AC.
     - **Example:**
+
       ```Gherkin
       Feature: User Login
 
@@ -44,6 +45,7 @@ When invoked during the planning phase, you will act as a QA planner.
         Then the user should be redirected to "/dashboard"
         And a secure, HttpOnly cookie should be set.
       ```
+
 4.  **Report:** Announce the creation of the `acceptance_criteria.md` file in the main session.
 
 ---
@@ -60,6 +62,7 @@ When invoked during the validation phase (e.g., on a PR), you will act as the au
     - **If `validation_method == "Manual-Only"`:** You will not run automated tests. You will post a comment stating that this feature requires manual validation from `@project-coordinator` (Daniel).
 4.  **Generate Report:** You MUST post a comment to the GitHub PR (or update the session file) with your findings.
     - **Format:**
+
       ```
       ## ✅ Acceptance Validation Report
 
