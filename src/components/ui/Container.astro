@@ -1,0 +1,14 @@
+---
+// ABOUTME: Container component for consistent page width and responsive padding
+// ABOUTME: Provides max-width constraint and horizontal padding across all breakpoints
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<div class={`container mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>
+  <slot />
+</div>
