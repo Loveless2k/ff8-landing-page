@@ -1,16 +1,22 @@
 ---
+// ABOUTME: Main landing page for Final Fantasy VIII website
+// ABOUTME: Displays hero section, characters, and game details using BaseLayout
 
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Container from '@components/ui/Container.astro';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <h1>Astro</h1>
-  </body>
-</html>
+<BaseLayout title="Final Fantasy VIII - Landing Page">
+  <main>
+    <Container>
+      <section class="min-h-screen flex items-center justify-center">
+        <div class="text-center">
+          <h1 class="text-5xl md:text-7xl font-bold mb-4">Final Fantasy VIII</h1>
+          <p class="text-xl md:text-2xl text-gray-600">
+            Experience the epic journey of Squall Leonhart
+          </p>
+        </div>
+      </section>
+    </Container>
+  </main>
+</BaseLayout>
