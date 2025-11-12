@@ -1,10 +1,17 @@
-# 
+#
+
 # 🔴 =================================================================
+
 # 🔴 STRATEGIC SECTION (The "Constitution")
+
 # 🔴 =================================================================
+
 # This section is filled by @meta-architect and approved by @project-coordinator.
+
 # It defines the "What", "How", and "Who" of the project.
+
 # It MUST be read by all agents before any work.
+
 #
 
 [project_metadata]
@@ -20,6 +27,7 @@ additional_tools: "Astro Image Optimization, PostCSS"
 backend_architecture: "Static Site Generation (SSG) - No backend required"
 
 [architecture_principles]
+
 - "Principle 1: Performance First - Ship minimal JavaScript. Only interactive components should hydrate."
 - "Principle 2: Component Isolation - Each section (Hero, Characters, Game Details) MUST be a self-contained component."
 - "Principle 3: Data-Driven Content - All character and game data MUST be stored in `src/data/` as structured TypeScript/JSON files."
@@ -34,6 +42,7 @@ vcs_provider: "GitHub"
 validation_method: "Playwright" # For E2E testing of animations and responsive behavior
 
 [core_team]
+
 - "domain-logic-architect"
 - "presentation-layer-architect"
 - "ui-component-architect"
@@ -42,12 +51,18 @@ validation_method: "Playwright" # For E2E testing of animations and responsive b
 - "acceptance-validator"
 - "implementation-test-engineer"
 
-# 
+#
+
 # 🔵 =================================================================
+
 # 🔵 TECHNICAL CONTEXT SECTION
+
 # 🔵 =================================================================
+
 # This section defines the project-specific implementation details.
+
 # Filled by @meta-architect, read by implementation agents.
+
 #
 
 ## Project Architecture Layers
@@ -110,22 +125,26 @@ tests/                  # Playwright E2E tests
 No environment variables required for the static site.
 
 Optional (for future enhancements):
+
 - `PUBLIC_ANALYTICS_ID` - Google Analytics or similar (if tracking is needed)
 
 ## Development Commands
 
 ### Running the Application
+
 ```bash
 npm run dev          # Start development server at localhost:4321
 ```
 
 ### Building
+
 ```bash
 npm run build        # Build for production (outputs to dist/)
 npm run preview      # Preview production build locally
 ```
 
 ### Testing
+
 ```bash
 npm test             # Run all Playwright tests
 npm run test:ui      # Run Playwright tests with UI
@@ -133,6 +152,7 @@ npm run test:debug   # Debug Playwright tests
 ```
 
 ### Linting
+
 ```bash
 npm run lint         # Lint TypeScript and Astro files
 npm run format       # Format code with Prettier
@@ -147,12 +167,14 @@ All data is stored locally in `src/data/` and imported directly into components.
 ## Key Technical Details
 
 ### Animation Strategy
+
 1. **GSAP ScrollTrigger**: Used for scroll-based animations (fade-ins, parallax effects)
 2. **GSAP Timeline**: Used for complex, sequenced animations (hero section entrance)
 3. **CSS Transitions**: Used for simple hover effects and micro-interactions
 4. **Performance**: All animations use `transform` and `opacity` for GPU acceleration
 
 ### Responsive Breakpoints (Tailwind defaults)
+
 - `sm`: 640px (tablet)
 - `md`: 768px (tablet landscape)
 - `lg`: 1024px (desktop)
@@ -160,6 +182,7 @@ All data is stored locally in `src/data/` and imported directly into components.
 - `2xl`: 1536px (extra large desktop)
 
 ### Image Optimization
+
 - All images use Astro's `<Image>` component
 - Automatic format conversion (WebP, AVIF)
 - Responsive image sizes generated automatically
@@ -168,6 +191,7 @@ All data is stored locally in `src/data/` and imported directly into components.
 ### Content Structure
 
 **Characters Data** (`src/data/characters.ts`):
+
 ```typescript
 export interface Character {
   id: string;
@@ -181,6 +205,7 @@ export interface Character {
 ```
 
 **Game Details Data** (`src/data/gameDetails.ts`):
+
 ```typescript
 export interface GameDetails {
   title: string;
@@ -212,7 +237,7 @@ export interface GameDetails {
    - Keyboard navigation support
    - Focus states
 
-7. **Performance Budget**: 
+7. **Performance Budget**:
    - First Contentful Paint (FCP) < 1.5s
    - Largest Contentful Paint (LCP) < 2.5s
    - Total Blocking Time (TBT) < 200ms
@@ -224,12 +249,18 @@ export interface GameDetails {
 
 10. **Testing Coverage**: All interactive features and animations MUST have corresponding Playwright tests.
 
-# 
+#
+
 # ⚪ =================================================================
+
 # ⚪ GLOBAL RULES SECTION (The "Methodology")
+
 # ⚪ =================================================================
+
 # These rules are fixed for the "Universal Framework".
+
 # They define HOW agents operate and collaborate.
+
 #
 
 ## Sub-Agent Workflow & Rules
@@ -304,4 +335,3 @@ export interface GameDetails {
 - Verify that all tests pass before considering work complete.
 - Verify that the code meets the performance budget defined in Architecture Compliance.
 - Verify that all accessibility requirements are met.
-

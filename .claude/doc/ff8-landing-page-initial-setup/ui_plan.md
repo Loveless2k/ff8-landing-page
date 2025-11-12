@@ -1,4 +1,5 @@
 # UI Component Architecture Plan
+
 **Agent:** @ui-component-architect  
 **Feature:** Final Fantasy VIII Landing Page  
 **Date:** 2025-11-11
@@ -12,6 +13,7 @@
 **Animation Library:** GSAP
 
 **Key Principles:**
+
 - Component Isolation
 - Mobile-First Responsive
 - Accessibility (ARIA labels, keyboard navigation)
@@ -65,15 +67,12 @@ interface Props {
   variant?: 'default' | 'elevated' | 'bordered';
 }
 
-const { 
-  class: className = '',
-  variant = 'default'
-} = Astro.props;
+const { class: className = '', variant = 'default' } = Astro.props;
 
 const variantClasses = {
   default: 'bg-gray-800 rounded-lg p-6',
   elevated: 'bg-gray-800 rounded-lg p-6 shadow-xl hover:shadow-2xl transition-shadow',
-  bordered: 'bg-gray-800 rounded-lg p-6 border border-gray-700'
+  bordered: 'bg-gray-800 rounded-lg p-6 border border-gray-700',
 };
 ---
 
@@ -96,20 +95,16 @@ interface Props {
   ariaLabel?: string;
 }
 
-const {
-  href,
-  variant = 'primary',
-  class: className = '',
-  ariaLabel
-} = Astro.props;
+const { href, variant = 'primary', class: className = '', ariaLabel } = Astro.props;
 
 const variantClasses = {
   primary: 'bg-blue-600 hover:bg-blue-700 text-white',
   secondary: 'bg-gray-700 hover:bg-gray-600 text-white',
-  ghost: 'bg-transparent hover:bg-gray-800 text-white border border-gray-600'
+  ghost: 'bg-transparent hover:bg-gray-800 text-white border border-gray-600',
 };
 
-const baseClasses = 'inline-block px-6 py-3 rounded-lg font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900';
+const baseClasses =
+  'inline-block px-6 py-3 rounded-lg font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900';
 
 const Element = href ? 'a' : 'button';
 ---
@@ -142,7 +137,7 @@ interface Props {
 const { character } = Astro.props;
 ---
 
-<article 
+<article
   class="group relative bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
   data-character-card
   data-character-id={character.id}
@@ -157,10 +152,11 @@ const { character } = Astro.props;
       class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
       loading="lazy"
     />
-    
+
     <!-- Gradient Overlay -->
-    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent"></div>
-    
+    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent">
+    </div>
+
     <!-- Character Name Overlay -->
     <div class="absolute bottom-0 left-0 right-0 p-6">
       <h3 class="text-2xl font-bold text-white mb-1">
@@ -171,13 +167,13 @@ const { character } = Astro.props;
       </p>
     </div>
   </div>
-  
+
   <!-- Character Details -->
   <div class="p-6">
     <p class="text-gray-300 mb-4 line-clamp-3">
       {character.description}
     </p>
-    
+
     <div class="grid grid-cols-2 gap-4 text-sm">
       <div>
         <span class="text-gray-500 block">Weapon</span>
@@ -188,12 +184,14 @@ const { character } = Astro.props;
         <span class="text-white font-semibold">{character.limitBreak}</span>
       </div>
     </div>
-    
-    {character.quote && (
-      <blockquote class="mt-4 pt-4 border-t border-gray-700 italic text-gray-400 text-sm">
-        "{character.quote}"
-      </blockquote>
-    )}
+
+    {
+      character.quote && (
+        <blockquote class="mt-4 pt-4 border-t border-gray-700 italic text-gray-400 text-sm">
+          "{character.quote}"
+        </blockquote>
+      )
+    }
   </div>
 </article>
 ```
@@ -215,16 +213,18 @@ interface Props {
 const { characters } = Astro.props;
 ---
 
-<div 
+<div
   class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
   role="list"
   aria-label="Final Fantasy VIII Characters"
 >
-  {characters.map((character) => (
-    <div role="listitem">
-      <CharacterCard character={character} />
-    </div>
-  ))}
+  {
+    characters.map((character) => (
+      <div role="listitem">
+        <CharacterCard character={character} />
+      </div>
+    ))
+  }
 </div>
 ```
 
@@ -249,26 +249,26 @@ const { characters } = Astro.props;
     font-style: normal;
     font-display: swap;
   }
-  
+
   /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
   }
-  
+
   /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 12px;
   }
-  
+
   ::-webkit-scrollbar-track {
     background: #1a1a1a;
   }
-  
+
   ::-webkit-scrollbar-thumb {
     background: #3b82f6;
     border-radius: 6px;
   }
-  
+
   ::-webkit-scrollbar-thumb:hover {
     background: #2563eb;
   }
@@ -279,12 +279,12 @@ const { characters } = Astro.props;
   .bg-ff8-gradient {
     background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
   }
-  
+
   /* Text gradient effect */
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600;
   }
-  
+
   /* Line clamp utilities */
   .line-clamp-3 {
     display: -webkit-box;
@@ -300,7 +300,7 @@ const { characters } = Astro.props;
     opacity: 0;
     transform: translateY(20px);
   }
-  
+
   .fade-in-active {
     opacity: 1;
     transform: translateY(0);
@@ -336,7 +336,7 @@ export default {
         },
       },
       fontFamily: {
-        'ff8': ['FF VIII', 'sans-serif'],
+        ff8: ['FF VIII', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out forwards',
@@ -368,7 +368,7 @@ export default {
 ✅ **Focus States:** All interactive elements have visible focus states (focus:ring)  
 ✅ **Alt Text:** All images have descriptive alt text  
 ✅ **Color Contrast:** All text meets WCAG AA standards (tested with gray-300 on gray-900)  
-✅ **Screen Reader Support:** Proper role attributes (list, listitem) for character grid  
+✅ **Screen Reader Support:** Proper role attributes (list, listitem) for character grid
 
 ---
 
@@ -387,7 +387,7 @@ export default {
 ✅ **Principle 2 (Component Isolation):** All components are self-contained and reusable  
 ✅ **Principle 5 (Mobile-First):** All components use mobile-first responsive design  
 ✅ **Principle 6 (Asset Optimization):** Using Astro's Image component for all images  
-✅ **Principle 7 (Accessibility):** All components have proper ARIA labels and semantic HTML  
+✅ **Principle 7 (Accessibility):** All components have proper ARIA labels and semantic HTML
 
 ---
 
@@ -413,4 +413,3 @@ export default {
 
 **Status:** ✅ Plan Complete  
 **Compliance:** 100% aligned with CLAUDE.md principles
-

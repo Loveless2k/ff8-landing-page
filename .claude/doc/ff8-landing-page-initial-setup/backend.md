@@ -1,4 +1,5 @@
 # Domain Logic Architecture Plan
+
 **Agent:** @domain-logic-architect  
 **Feature:** Final Fantasy VIII Landing Page  
 **Date:** 2025-11-11
@@ -37,15 +38,15 @@ Since this is a static site with no backend API, the "domain logic" is primarily
 // ABOUTME: Defines the shape of character and game detail data structures
 
 export interface Character {
-  id: string;                    // Unique identifier (e.g., "squall")
-  name: string;                  // Full character name
-  role: string;                  // Character role/title
-  age: number;                   // Character age
-  description: string;           // Character bio/description
-  imageUrl: string;              // Path to character image
-  weapon: string;                // Primary weapon
-  limitBreak: string;            // Limit break name
-  quote?: string;                // Optional character quote
+  id: string; // Unique identifier (e.g., "squall")
+  name: string; // Full character name
+  role: string; // Character role/title
+  age: number; // Character age
+  description: string; // Character bio/description
+  imageUrl: string; // Path to character image
+  weapon: string; // Primary weapon
+  limitBreak: string; // Limit break name
+  quote?: string; // Optional character quote
 }
 
 export interface GameMechanic {
@@ -64,12 +65,12 @@ export interface GameFeature {
 
 export interface GameDetails {
   title: string;
-  releaseDate: string;           // ISO date format
+  releaseDate: string; // ISO date format
   platforms: string[];
   developer: string;
   publisher: string;
-  synopsis: string;              // Main story overview
-  tagline: string;               // Marketing tagline
+  synopsis: string; // Main story overview
+  tagline: string; // Marketing tagline
   features: GameFeature[];
   mechanics: GameMechanic[];
 }
@@ -91,42 +92,46 @@ export const characters: Character[] = [
     name: 'Squall Leonhart',
     role: 'Main Protagonist',
     age: 17,
-    description: 'A lone wolf and leader of SeeD, Squall wields a gunblade and struggles with opening up to others.',
+    description:
+      'A lone wolf and leader of SeeD, Squall wields a gunblade and struggles with opening up to others.',
     imageUrl: '/images/characters/squall.webp',
     weapon: 'Gunblade (Revolver)',
     limitBreak: 'Renzokuken',
-    quote: 'Whatever...'
+    quote: 'Whatever...',
   },
   {
     id: 'rinoa',
     name: 'Rinoa Heartilly',
     role: 'Resistance Fighter',
     age: 17,
-    description: 'A passionate member of the Forest Owls resistance group who brings warmth to Squall\'s cold exterior.',
+    description:
+      "A passionate member of the Forest Owls resistance group who brings warmth to Squall's cold exterior.",
     imageUrl: '/images/characters/rinoa.webp',
     weapon: 'Blaster Edge',
     limitBreak: 'Angel Wing',
-    quote: 'I\'ll be waiting for you.'
+    quote: "I'll be waiting for you.",
   },
   {
     id: 'quistis',
     name: 'Quistis Trepe',
     role: 'Instructor',
     age: 18,
-    description: 'A talented young instructor at Balamb Garden who uses Blue Magic and a whip in combat.',
+    description:
+      'A talented young instructor at Balamb Garden who uses Blue Magic and a whip in combat.',
     imageUrl: '/images/characters/quistis.webp',
     weapon: 'Save the Queen (Whip)',
-    limitBreak: 'Blue Magic'
+    limitBreak: 'Blue Magic',
   },
   {
     id: 'zell',
     name: 'Zell Dincht',
     role: 'Martial Artist',
     age: 17,
-    description: 'An energetic martial artist with a love for hot dogs and a fierce fighting spirit.',
+    description:
+      'An energetic martial artist with a love for hot dogs and a fierce fighting spirit.',
     imageUrl: '/images/characters/zell.webp',
     weapon: 'Gauntlets',
-    limitBreak: 'Duel'
+    limitBreak: 'Duel',
   },
   {
     id: 'selphie',
@@ -136,7 +141,7 @@ export const characters: Character[] = [
     description: 'A cheerful and optimistic SeeD member from Trabia Garden who wields nunchaku.',
     imageUrl: '/images/characters/selphie.webp',
     weapon: 'Nunchaku',
-    limitBreak: 'Slot'
+    limitBreak: 'Slot',
   },
   {
     id: 'irvine',
@@ -146,8 +151,8 @@ export const characters: Character[] = [
     description: 'A smooth-talking sniper from Galbadia Garden with a mysterious past.',
     imageUrl: '/images/characters/irvine.webp',
     weapon: 'Rifle',
-    limitBreak: 'Shot'
-  }
+    limitBreak: 'Shot',
+  },
 ];
 ```
 
@@ -169,52 +174,60 @@ export const gameDetails: GameDetails = {
   publisher: 'Square',
   tagline: 'The best way to avoid danger is to not get involved.',
   synopsis: `Final Fantasy VIII follows Squall Leonhart, a young SeeD mercenary who finds himself drawn into a conflict that spans time itself. As he and his companions uncover the truth about their pasts and the sorceress threat facing their world, they must confront destiny, love, and the meaning of existence.`,
-  
+
   features: [
     {
       id: 'junction-system',
       title: 'Revolutionary Junction System',
-      description: 'Customize your characters by junctioning Guardian Forces and magic to stats, creating unique builds for each battle.'
+      description:
+        'Customize your characters by junctioning Guardian Forces and magic to stats, creating unique builds for each battle.',
     },
     {
       id: 'triple-triad',
       title: 'Triple Triad Card Game',
-      description: 'An addictive card game that became a phenomenon, with hundreds of cards to collect and strategic gameplay.'
+      description:
+        'An addictive card game that became a phenomenon, with hundreds of cards to collect and strategic gameplay.',
     },
     {
       id: 'realistic-characters',
       title: 'Realistic Character Design',
-      description: 'Groundbreaking character models and FMV sequences that pushed the boundaries of PlayStation hardware.'
+      description:
+        'Groundbreaking character models and FMV sequences that pushed the boundaries of PlayStation hardware.',
     },
     {
       id: 'epic-story',
       title: 'Time-Spanning Epic',
-      description: 'A complex narrative involving time compression, sorceresses, and the bonds that transcend lifetimes.'
-    }
+      description:
+        'A complex narrative involving time compression, sorceresses, and the bonds that transcend lifetimes.',
+    },
   ],
-  
+
   mechanics: [
     {
       id: 'junction',
       name: 'Junction System',
-      description: 'Draw magic from enemies and junction it to stats for customization. Guardian Forces provide abilities and stat bonuses.'
+      description:
+        'Draw magic from enemies and junction it to stats for customization. Guardian Forces provide abilities and stat bonuses.',
     },
     {
       id: 'gf',
       name: 'Guardian Forces (GF)',
-      description: 'Summonable entities that provide abilities, stat junctions, and powerful attacks. Each GF can be customized through AP.'
+      description:
+        'Summonable entities that provide abilities, stat junctions, and powerful attacks. Each GF can be customized through AP.',
     },
     {
       id: 'draw',
       name: 'Draw & Magic',
-      description: 'Extract magic from enemies and draw points. Magic is a consumable resource used for both casting and junctioning.'
+      description:
+        'Extract magic from enemies and draw points. Magic is a consumable resource used for both casting and junctioning.',
     },
     {
       id: 'limit-breaks',
       name: 'Limit Breaks',
-      description: 'Powerful special attacks available when HP is low. Each character has unique limit break mechanics.'
-    }
-  ]
+      description:
+        'Powerful special attacks available when HP is low. Each character has unique limit break mechanics.',
+    },
+  ],
 };
 ```
 
@@ -260,7 +273,7 @@ export function validateGameDetails(details: GameDetails): boolean {
 ✅ **Principle 3 (Data-Driven Content):** All data is in `src/data/` as TypeScript files  
 ✅ **TypeScript Strictness:** No `any` types, all interfaces properly defined  
 ✅ **Component Isolation:** Data layer is completely separate from presentation  
-✅ **Single Source of Truth:** All content comes from typed data files  
+✅ **Single Source of Truth:** All content comes from typed data files
 
 ---
 
@@ -284,4 +297,3 @@ export function validateGameDetails(details: GameDetails): boolean {
 
 **Status:** ✅ Plan Complete  
 **Compliance:** 100% aligned with CLAUDE.md principles
-
