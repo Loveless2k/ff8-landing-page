@@ -10,6 +10,7 @@
 ## Epic 1: Project Foundation 🔴 CRITICAL
 
 ### Issue #1: Initialize Astro Project with TypeScript
+
 **Labels:** `setup`, `critical`  
 **Estimated Effort:** 1 hour  
 **Dependencies:** None
@@ -18,6 +19,7 @@
 Initialize a new Astro project with TypeScript template to serve as the foundation for the Final Fantasy VIII landing page.
 
 **Tasks:**
+
 - [ ] Run `npm create astro@latest` with TypeScript template
 - [ ] Configure `tsconfig.json` with strict mode enabled
 - [ ] Set up path aliases in `tsconfig.json` (@components, @layouts, @data, @styles, @scripts, @assets)
@@ -26,6 +28,7 @@ Initialize a new Astro project with TypeScript template to serve as the foundati
 - [ ] Verify project structure matches CLAUDE.md architecture
 
 **Acceptance Criteria:**
+
 - ✅ AC1.1: Project has valid `package.json`, `astro.config.mjs`, and `tsconfig.json`
 - ✅ TypeScript strict mode is enabled
 - ✅ Git repository is initialized
@@ -36,6 +39,7 @@ Initialize a new Astro project with TypeScript template to serve as the foundati
 ---
 
 ### Issue #2: Install and Configure Dependencies
+
 **Labels:** `setup`, `critical`  
 **Estimated Effort:** 2 hours  
 **Dependencies:** #1
@@ -44,6 +48,7 @@ Initialize a new Astro project with TypeScript template to serve as the foundati
 Install and configure all required dependencies including Tailwind CSS, GSAP, Playwright, and development tools.
 
 **Tasks:**
+
 - [ ] Install Tailwind CSS: `npx astro add tailwind`
 - [ ] Install GSAP: `npm install gsap`
 - [ ] Install Playwright: `npm install -D @playwright/test`
@@ -53,6 +58,7 @@ Install and configure all required dependencies including Tailwind CSS, GSAP, Pl
 - [ ] Verify all dependencies install without conflicts
 
 **Acceptance Criteria:**
+
 - ✅ AC1.2: All required packages are in `package.json`
 - ✅ AC1.3: Development server runs on port 4321
 - ✅ No dependency conflicts or vulnerabilities
@@ -62,6 +68,7 @@ Install and configure all required dependencies including Tailwind CSS, GSAP, Pl
 ---
 
 ### Issue #3: Set Up Project Structure
+
 **Labels:** `setup`, `critical`  
 **Estimated Effort:** 1 hour  
 **Dependencies:** #1
@@ -70,6 +77,7 @@ Install and configure all required dependencies including Tailwind CSS, GSAP, Pl
 Create the complete folder structure according to CLAUDE.md architecture principles.
 
 **Tasks:**
+
 - [ ] Create `src/components/characters/` directory
 - [ ] Create `src/components/sections/` directory
 - [ ] Create `src/components/ui/` directory
@@ -84,6 +92,7 @@ Create the complete folder structure according to CLAUDE.md architecture princip
 - [ ] Create `.claude/doc/` directory structure
 
 **Acceptance Criteria:**
+
 - ✅ Project structure matches CLAUDE.md architecture
 - ✅ All directories are created
 - ✅ Path aliases work correctly
@@ -95,6 +104,7 @@ Create the complete folder structure according to CLAUDE.md architecture princip
 ## Epic 2: Data Layer Implementation 🟠 HIGH
 
 ### Issue #4: Define TypeScript Interfaces
+
 **Labels:** `data-layer`, `high-priority`  
 **Estimated Effort:** 1 hour  
 **Dependencies:** #3
@@ -103,6 +113,7 @@ Create the complete folder structure according to CLAUDE.md architecture princip
 Create TypeScript interfaces for all data structures (Character, GameDetails, GameFeature, GameMechanic).
 
 **Tasks:**
+
 - [ ] Create `src/data/types.ts` file
 - [ ] Define `Character` interface with all required fields
 - [ ] Define `GameDetails` interface
@@ -112,6 +123,7 @@ Create TypeScript interfaces for all data structures (Character, GameDetails, Ga
 - [ ] Add ABOUTME comments to file header
 
 **Acceptance Criteria:**
+
 - ✅ AC2.1: Character interface has all required fields (id, name, role, age, description, imageUrl, weapon, limitBreak, quote?)
 - ✅ All interfaces are properly typed
 - ✅ No `any` types used
@@ -121,6 +133,7 @@ Create TypeScript interfaces for all data structures (Character, GameDetails, Ga
 ---
 
 ### Issue #5: Implement Character Data
+
 **Labels:** `data-layer`, `content`, `high-priority`  
 **Estimated Effort:** 2 hours  
 **Dependencies:** #4
@@ -129,6 +142,7 @@ Create TypeScript interfaces for all data structures (Character, GameDetails, Ga
 Create character data for all 6 main Final Fantasy VIII characters.
 
 **Tasks:**
+
 - [ ] Create `src/data/characters.ts` file
 - [ ] Add Squall Leonhart character data
 - [ ] Add Rinoa Heartilly character data
@@ -140,6 +154,7 @@ Create character data for all 6 main Final Fantasy VIII characters.
 - [ ] Add character quotes where appropriate
 
 **Acceptance Criteria:**
+
 - ✅ AC2.2: Exactly 6 characters are defined
 - ✅ All characters have complete data (name, role, age, description, weapon, limitBreak)
 - ✅ Data validates against TypeScript interfaces
@@ -149,6 +164,7 @@ Create character data for all 6 main Final Fantasy VIII characters.
 ---
 
 ### Issue #6: Implement Game Details Data
+
 **Labels:** `data-layer`, `content`, `high-priority`  
 **Estimated Effort:** 2 hours  
 **Dependencies:** #4
@@ -157,6 +173,7 @@ Create character data for all 6 main Final Fantasy VIII characters.
 Create game details data including synopsis, features, and mechanics (brief overview format).
 
 **Tasks:**
+
 - [ ] Create `src/data/gameDetails.ts` file
 - [ ] Write 2-3 paragraph synopsis (~200-300 words)
 - [ ] Define 4 key features (Junction System, Triple Triad, SeeD Mercenaries, Epic Story)
@@ -165,6 +182,7 @@ Create game details data including synopsis, features, and mechanics (brief over
 - [ ] Validate data against GameDetails interface
 
 **Acceptance Criteria:**
+
 - ✅ AC2.3: Game details object has title "Final Fantasy VIII"
 - ✅ At least 4 features and 4 mechanics are defined
 - ✅ Synopsis is 2-3 paragraphs
@@ -176,6 +194,7 @@ Create game details data including synopsis, features, and mechanics (brief over
 ---
 
 ### Issue #7: Create Data Validation Utilities
+
 **Labels:** `data-layer`, `testing`  
 **Estimated Effort:** 1 hour  
 **Dependencies:** #4, #5, #6
@@ -184,6 +203,7 @@ Create game details data including synopsis, features, and mechanics (brief over
 Create validation utilities to ensure data integrity.
 
 **Tasks:**
+
 - [ ] Create `src/data/validators.ts` file
 - [ ] Implement `validateCharacter()` function
 - [ ] Implement `validateGameDetails()` function
@@ -191,6 +211,7 @@ Create validation utilities to ensure data integrity.
 - [ ] Run validators on all data files
 
 **Acceptance Criteria:**
+
 - ✅ All data passes validation
 - ✅ Validators catch missing required fields
 - ✅ Unit tests pass
@@ -202,6 +223,7 @@ Create validation utilities to ensure data integrity.
 ## Epic 3: Base Components & Layout 🟠 HIGH
 
 ### Issue #8: Create BaseLayout Component
+
 **Labels:** `layout`, `high-priority`  
 **Estimated Effort:** 2 hours  
 **Dependencies:** #3
@@ -210,6 +232,7 @@ Create validation utilities to ensure data integrity.
 Create the base layout component with HTML5 structure, meta tags, and Open Graph configuration.
 
 **Tasks:**
+
 - [ ] Create `src/layouts/BaseLayout.astro` file
 - [ ] Add HTML5 doctype and semantic structure
 - [ ] Configure meta tags (charset, viewport, description)
@@ -219,6 +242,7 @@ Create the base layout component with HTML5 structure, meta tags, and Open Graph
 - [ ] Add ABOUTME comments
 
 **Acceptance Criteria:**
+
 - ✅ AC3.1: BaseLayout has valid HTML5 structure
 - ✅ Meta tags are properly configured
 - ✅ Open Graph tags are present
@@ -229,6 +253,7 @@ Create the base layout component with HTML5 structure, meta tags, and Open Graph
 ---
 
 ### Issue #9: Create Base UI Components
+
 **Labels:** `ui-components`, `high-priority`  
 **Estimated Effort:** 3 hours  
 **Dependencies:** #3
@@ -237,6 +262,7 @@ Create the base layout component with HTML5 structure, meta tags, and Open Graph
 Create reusable base UI components (Container, Card, Button) with variants and mobile-first responsive design.
 
 **Tasks:**
+
 - [ ] Create `src/components/ui/Container.astro` with responsive padding
 - [ ] Create `src/components/ui/Card.astro` with 3 variants (default, elevated, bordered)
 - [ ] Create `src/components/ui/Button.astro` with 3 variants (primary, secondary, ghost)
@@ -246,6 +272,7 @@ Create reusable base UI components (Container, Card, Button) with variants and m
 - [ ] Add ABOUTME comments to all files
 
 **Acceptance Criteria:**
+
 - ✅ AC3.2: All 3 UI component files exist
 - ✅ Components accept proper props
 - ✅ Components are responsive
@@ -256,6 +283,7 @@ Create reusable base UI components (Container, Card, Button) with variants and m
 ---
 
 ### Issue #10: Set Up Global Styles
+
 **Labels:** `styling`, `high-priority`  
 **Estimated Effort:** 2 hours  
 **Dependencies:** #2
@@ -264,6 +292,7 @@ Create reusable base UI components (Container, Card, Button) with variants and m
 Create global styles with Tailwind directives, modern dark mode color palette, and system font stack.
 
 **Tasks:**
+
 - [ ] Create `src/styles/global.css` with Tailwind directives
 - [ ] Configure modern dark mode color palette (near-black backgrounds, vibrant blue/purple accents)
 - [ ] Set up system font stack (no custom fonts)
@@ -272,6 +301,7 @@ Create global styles with Tailwind directives, modern dark mode color palette, a
 - [ ] Update `tailwind.config.mjs` with custom colors and breakpoints
 
 **Color Palette:**
+
 ```
 Primary BG: #0a0a0a
 Secondary BG: #1a1a1a
@@ -282,6 +312,7 @@ Text Secondary: #d1d5db
 ```
 
 **Acceptance Criteria:**
+
 - ✅ Styles compile without errors
 - ✅ Modern dark mode palette is implemented
 - ✅ System fonts are used (no custom font loading)
@@ -295,6 +326,7 @@ Text Secondary: #d1d5db
 ## Epic 4: Character Components 🟠 HIGH
 
 ### Issue #11: Create CharacterCard Component
+
 **Labels:** `ui-components`, `characters`, `high-priority`  
 **Estimated Effort:** 3 hours  
 **Dependencies:** #4, #9
@@ -303,6 +335,7 @@ Text Secondary: #d1d5db
 Create the CharacterCard component to display individual character information with hover effects.
 
 **Tasks:**
+
 - [ ] Create `src/components/characters/CharacterCard.astro` file
 - [ ] Accept `character` prop of type `Character`
 - [ ] Display character image using Astro Image component
@@ -313,6 +346,7 @@ Create the CharacterCard component to display individual character information w
 - [ ] Add ABOUTME comments
 
 **Acceptance Criteria:**
+
 - ✅ AC3.3: CharacterCard component exists and accepts Character prop
 - ✅ All character data is displayed
 - ✅ Hover effects work smoothly
@@ -324,6 +358,7 @@ Create the CharacterCard component to display individual character information w
 ---
 
 ### Issue #12: Create CharacterGrid Component
+
 **Labels:** `ui-components`, `characters`, `high-priority`  
 **Estimated Effort:** 2 hours  
 **Dependencies:** #11
@@ -332,6 +367,7 @@ Create the CharacterCard component to display individual character information w
 Create the CharacterGrid component with responsive grid layout (1/2/3 columns).
 
 **Tasks:**
+
 - [ ] Create `src/components/characters/CharacterGrid.astro` file
 - [ ] Accept `characters` prop of type `Character[]`
 - [ ] Implement responsive grid (1 col mobile, 2 col tablet, 3 col desktop)
@@ -340,6 +376,7 @@ Create the CharacterGrid component with responsive grid layout (1/2/3 columns).
 - [ ] Add ABOUTME comments
 
 **Acceptance Criteria:**
+
 - ✅ AC3.3: CharacterGrid component exists and accepts Character[] prop
 - ✅ Grid is responsive at all breakpoints
 - ✅ ARIA roles are properly set
@@ -352,6 +389,7 @@ Create the CharacterGrid component with responsive grid layout (1/2/3 columns).
 ## Epic 5: Section Components 🟠 HIGH
 
 ### Issue #13: Create HeroSection Component
+
 **Labels:** `sections`, `hero`, `high-priority`
 **Estimated Effort:** 3 hours
 **Dependencies:** #9
@@ -360,6 +398,7 @@ Create the CharacterGrid component with responsive grid layout (1/2/3 columns).
 Create the hero section with title, tagline, CTA button, and parallax background container.
 
 **Tasks:**
+
 - [ ] Create `src/components/sections/HeroSection.astro` file
 - [ ] Add hero title "Final Fantasy VIII"
 - [ ] Add tagline/subtitle
@@ -370,6 +409,7 @@ Create the hero section with title, tagline, CTA button, and parallax background
 - [ ] Add ABOUTME comments
 
 **Acceptance Criteria:**
+
 - ✅ AC3.4: HeroSection component exists
 - ✅ All elements have data attributes for animations
 - ✅ CTA button links to characters section
@@ -380,6 +420,7 @@ Create the hero section with title, tagline, CTA button, and parallax background
 ---
 
 ### Issue #14: Create CharactersSection Component
+
 **Labels:** `sections`, `characters`, `high-priority`
 **Estimated Effort:** 2 hours
 **Dependencies:** #12
@@ -388,6 +429,7 @@ Create the hero section with title, tagline, CTA button, and parallax background
 Create the characters section with heading and character grid integration.
 
 **Tasks:**
+
 - [ ] Create `src/components/sections/CharactersSection.astro` file
 - [ ] Accept `characters` array as prop
 - [ ] Add section heading "Meet the Heroes"
@@ -397,6 +439,7 @@ Create the characters section with heading and character grid integration.
 - [ ] Add ABOUTME comments
 
 **Acceptance Criteria:**
+
 - ✅ AC3.4: CharactersSection component exists
 - ✅ Section heading is present
 - ✅ CharacterGrid is integrated
@@ -407,6 +450,7 @@ Create the characters section with heading and character grid integration.
 ---
 
 ### Issue #15: Create GameDetailsSection Component
+
 **Labels:** `sections`, `game-details`, `high-priority`
 **Estimated Effort:** 3 hours
 **Dependencies:** #9
@@ -415,6 +459,7 @@ Create the characters section with heading and character grid integration.
 Create the game details section with synopsis, features grid, and mechanics grid.
 
 **Tasks:**
+
 - [ ] Create `src/components/sections/GameDetailsSection.astro` file
 - [ ] Accept `gameDetails` object as prop
 - [ ] Display synopsis with proper typography
@@ -425,6 +470,7 @@ Create the game details section with synopsis, features grid, and mechanics grid
 - [ ] Add ABOUTME comments
 
 **Acceptance Criteria:**
+
 - ✅ AC3.4: GameDetailsSection component exists
 - ✅ Synopsis is displayed
 - ✅ Features and mechanics grids are responsive
@@ -435,6 +481,7 @@ Create the game details section with synopsis, features grid, and mechanics grid
 ---
 
 ### Issue #16: Create Footer Component
+
 **Labels:** `sections`, `footer`
 **Estimated Effort:** 1 hour
 **Dependencies:** #3
@@ -443,6 +490,7 @@ Create the game details section with synopsis, features grid, and mechanics grid
 Create the footer with copyright notice and disclaimer.
 
 **Tasks:**
+
 - [ ] Create `src/components/sections/Footer.astro` file
 - [ ] Add copyright notice
 - [ ] Add disclaimer about fan project/non-commercial use
@@ -451,6 +499,7 @@ Create the footer with copyright notice and disclaimer.
 - [ ] Add ABOUTME comments
 
 **Acceptance Criteria:**
+
 - ✅ AC3.4: Footer component exists
 - ✅ Copyright and disclaimer are present
 - ✅ Footer is responsive
@@ -462,6 +511,7 @@ Create the footer with copyright notice and disclaimer.
 ## Epic 6: Main Page Assembly 🟠 HIGH
 
 ### Issue #17: Create Landing Page
+
 **Labels:** `pages`, `high-priority`
 **Estimated Effort:** 2 hours
 **Dependencies:** #8, #13, #14, #15, #16, #5, #6
@@ -470,6 +520,7 @@ Create the footer with copyright notice and disclaimer.
 Assemble the main landing page by importing all sections and data.
 
 **Tasks:**
+
 - [ ] Create `src/pages/index.astro` file
 - [ ] Import and use BaseLayout
 - [ ] Import all section components (Hero, Characters, GameDetails, Footer)
@@ -480,6 +531,7 @@ Assemble the main landing page by importing all sections and data.
 - [ ] Add ABOUTME comments
 
 **Acceptance Criteria:**
+
 - ✅ AC4.1: Landing page renders all sections
 - ✅ AC4.2: Content matches data files
 - ✅ No console errors
@@ -492,6 +544,7 @@ Assemble the main landing page by importing all sections and data.
 ## Epic 7: Animation Implementation 🟡 MEDIUM
 
 ### Issue #18: Implement Hero Animations (Bold & Engaging)
+
 **Labels:** `animations`, `gsap`, `medium-priority`
 **Estimated Effort:** 3 hours
 **Dependencies:** #13
@@ -500,6 +553,7 @@ Assemble the main landing page by importing all sections and data.
 Implement bold and engaging hero entrance animations using GSAP Timeline.
 
 **Tasks:**
+
 - [ ] Create `src/scripts/animations/heroAnimations.ts` file
 - [ ] Use GSAP Timeline for sequenced animations
 - [ ] Animate title: 1.2s duration, power4.out easing, fade-in
@@ -510,11 +564,13 @@ Implement bold and engaging hero entrance animations using GSAP Timeline.
 - [ ] Add ABOUTME comments
 
 **Animation Parameters (Bold):**
+
 - Title: `duration: 1.2, ease: 'power4.out'`
 - Tagline: `duration: 1.0, scale: 0.8, ease: 'power2.out'`
 - CTA: `duration: 0.8, ease: 'back.out(1.7)'`
 
 **Acceptance Criteria:**
+
 - ✅ AC5.1: Hero animations trigger on page load
 - ✅ Animations complete within 2.5 seconds
 - ✅ Animations are bold and engaging
@@ -526,6 +582,7 @@ Implement bold and engaging hero entrance animations using GSAP Timeline.
 ---
 
 ### Issue #19: Implement Scroll Animations (Bold & Engaging)
+
 **Labels:** `animations`, `gsap`, `scroll-trigger`, `medium-priority`
 **Estimated Effort:** 4 hours
 **Dependencies:** #14, #15
@@ -534,6 +591,7 @@ Implement bold and engaging hero entrance animations using GSAP Timeline.
 Implement bold scroll-triggered animations using GSAP ScrollTrigger.
 
 **Tasks:**
+
 - [ ] Create `src/scripts/animations/scrollAnimations.ts` file
 - [ ] Use GSAP ScrollTrigger for scroll-based animations
 - [ ] Animate section headings: 1.0s duration, scale effect (0.9 → 1.0) + fade-in
@@ -543,10 +601,12 @@ Implement bold scroll-triggered animations using GSAP ScrollTrigger.
 - [ ] Add ABOUTME comments
 
 **Animation Parameters (Bold):**
+
 - Headings: `duration: 1.0, scale: 0.9, ease: 'power3.out'`
 - Cards: `duration: 1.0, y: 40, stagger: 0.2, ease: 'power2.out'`
 
 **Acceptance Criteria:**
+
 - ✅ AC5.2: Scroll animations trigger correctly
 - ✅ Character cards animate sequentially
 - ✅ Animations are bold and engaging
@@ -558,6 +618,7 @@ Implement bold scroll-triggered animations using GSAP ScrollTrigger.
 ---
 
 ### Issue #20: Implement Parallax Effect (Bold & Engaging)
+
 **Labels:** `animations`, `gsap`, `parallax`, `medium-priority`
 **Estimated Effort:** 2 hours
 **Dependencies:** #13
@@ -566,6 +627,7 @@ Implement bold scroll-triggered animations using GSAP ScrollTrigger.
 Implement bold parallax background effect using GSAP.
 
 **Tasks:**
+
 - [ ] Create `src/scripts/animations/parallax.ts` file
 - [ ] Use GSAP for parallax background movement
 - [ ] Apply to hero section background
@@ -577,10 +639,12 @@ Implement bold parallax background effect using GSAP.
 - [ ] Add ABOUTME comments
 
 **Animation Parameters (Bold):**
+
 - Movement speed: `0.5x` (increased from subtle 0.3x)
 - Rotation: `±2 degrees`
 
 **Acceptance Criteria:**
+
 - ✅ AC5.3: Parallax effect is noticeable
 - ✅ Effect is smooth (60fps)
 - ✅ Works on different devices
@@ -594,6 +658,7 @@ Implement bold parallax background effect using GSAP.
 ## Epic 8: Responsive Design & Polish 🟡 MEDIUM
 
 ### Issue #21: Implement Mobile Responsive Design
+
 **Labels:** `responsive`, `mobile`, `medium-priority`
 **Estimated Effort:** 3 hours
 **Dependencies:** #17
@@ -602,6 +667,7 @@ Implement bold parallax background effect using GSAP.
 Test and optimize all components for mobile devices (375px width).
 
 **Tasks:**
+
 - [ ] Test all components at 375px width
 - [ ] Ensure single-column layouts (character grid, features, mechanics)
 - [ ] Verify touch interactions work correctly
@@ -611,6 +677,7 @@ Test and optimize all components for mobile devices (375px width).
 - [ ] Verify all images fit within viewport
 
 **Acceptance Criteria:**
+
 - ✅ AC6.1: Character grid displays 1 column on mobile
 - ✅ All text is readable without zooming
 - ✅ No horizontal scrolling
@@ -621,6 +688,7 @@ Test and optimize all components for mobile devices (375px width).
 ---
 
 ### Issue #22: Implement Tablet Responsive Design
+
 **Labels:** `responsive`, `tablet`, `medium-priority`
 **Estimated Effort:** 2 hours
 **Dependencies:** #17
@@ -629,6 +697,7 @@ Test and optimize all components for mobile devices (375px width).
 Test and optimize all components for tablet devices (768px width).
 
 **Tasks:**
+
 - [ ] Test all components at 768px width
 - [ ] Ensure 2-column character grid
 - [ ] Ensure 2-column features and mechanics grids
@@ -637,6 +706,7 @@ Test and optimize all components for tablet devices (768px width).
 - [ ] Fix any layout issues
 
 **Acceptance Criteria:**
+
 - ✅ AC6.2: Character grid displays 2 columns on tablet
 - ✅ Layout is optimized for tablet viewing
 - ✅ Spacing is appropriate
@@ -646,6 +716,7 @@ Test and optimize all components for tablet devices (768px width).
 ---
 
 ### Issue #23: Implement Desktop Responsive Design
+
 **Labels:** `responsive`, `desktop`, `medium-priority`
 **Estimated Effort:** 2 hours
 **Dependencies:** #17
@@ -654,6 +725,7 @@ Test and optimize all components for tablet devices (768px width).
 Test and optimize all components for desktop (1280px+ width).
 
 **Tasks:**
+
 - [ ] Test all components at 1280px+ width
 - [ ] Ensure 3-column character grid
 - [ ] Verify max-width container
@@ -662,6 +734,7 @@ Test and optimize all components for desktop (1280px+ width).
 - [ ] Fix any layout issues
 
 **Acceptance Criteria:**
+
 - ✅ AC6.3: Character grid displays 3 columns on desktop
 - ✅ Container has maximum width
 - ✅ Content is centered
@@ -672,6 +745,7 @@ Test and optimize all components for desktop (1280px+ width).
 ---
 
 ### Issue #24: Add Hover Effects and Micro-Interactions
+
 **Labels:** `ui-polish`, `medium-priority`
 **Estimated Effort:** 2 hours
 **Dependencies:** #11, #9
@@ -680,6 +754,7 @@ Test and optimize all components for desktop (1280px+ width).
 Implement smooth hover effects and micro-interactions for enhanced user experience.
 
 **Tasks:**
+
 - [ ] Implement character card hover effects (elevation, image zoom)
 - [ ] Add button hover states (color transitions)
 - [ ] Ensure smooth transitions (0.3s duration)
@@ -687,6 +762,7 @@ Implement smooth hover effects and micro-interactions for enhanced user experien
 - [ ] Verify hover effects don't persist on mobile tap
 
 **Acceptance Criteria:**
+
 - ✅ Hover effects are smooth and engaging
 - ✅ Transitions use appropriate timing
 - ✅ No hover persistence on touch devices
@@ -694,6 +770,7 @@ Implement smooth hover effects and micro-interactions for enhanced user experien
 ---
 
 ### Issue #25: Optimize Images with Astro Image Component
+
 **Labels:** `performance`, `images`, `medium-priority`
 **Estimated Effort:** 3 hours
 **Dependencies:** #11, #13
@@ -702,6 +779,7 @@ Implement smooth hover effects and micro-interactions for enhanced user experien
 Optimize all images using Astro's Image component for automatic format conversion and responsive sizing.
 
 **Tasks:**
+
 - [ ] Replace all `<img>` tags with Astro `<Image>` component
 - [ ] Configure automatic WebP/AVIF conversion
 - [ ] Set up responsive image sizes for different viewports
@@ -710,6 +788,7 @@ Optimize all images using Astro's Image component for automatic format conversio
 - [ ] Test image loading performance
 
 **Acceptance Criteria:**
+
 - ✅ AC8.2: All images use Astro Image component
 - ✅ Images are in WebP or AVIF format
 - ✅ Lazy loading is implemented
@@ -722,6 +801,7 @@ Optimize all images using Astro's Image component for automatic format conversio
 ## Epic 9: Accessibility Implementation 🟠 HIGH
 
 ### Issue #26: Implement Keyboard Navigation
+
 **Labels:** `accessibility`, `a11y`, `high-priority`
 **Estimated Effort:** 2 hours
 **Dependencies:** #17
@@ -730,6 +810,7 @@ Optimize all images using Astro's Image component for automatic format conversio
 Ensure all interactive elements are keyboard accessible with visible focus indicators.
 
 **Tasks:**
+
 - [ ] Test keyboard navigation (Tab, Shift+Tab, Enter, Space)
 - [ ] Add visible focus indicators to all focusable elements
 - [ ] Verify tab order is logical (top to bottom, left to right)
@@ -737,6 +818,7 @@ Ensure all interactive elements are keyboard accessible with visible focus indic
 - [ ] Test with keyboard only (no mouse)
 
 **Acceptance Criteria:**
+
 - ✅ AC7.1: All interactive elements are keyboard accessible
 - ✅ Focus indicators are visible
 - ✅ Tab order is logical
@@ -746,6 +828,7 @@ Ensure all interactive elements are keyboard accessible with visible focus indic
 ---
 
 ### Issue #27: Add ARIA Labels and Semantic HTML
+
 **Labels:** `accessibility`, `a11y`, `aria`, `high-priority`
 **Estimated Effort:** 2 hours
 **Dependencies:** #17
@@ -754,6 +837,7 @@ Ensure all interactive elements are keyboard accessible with visible focus indic
 Add proper ARIA labels and ensure semantic HTML structure throughout the site.
 
 **Tasks:**
+
 - [ ] Add aria-label to all buttons and links
 - [ ] Add role="list" to character grid
 - [ ] Add role="listitem" to character cards
@@ -762,6 +846,7 @@ Add proper ARIA labels and ensure semantic HTML structure throughout the site.
 - [ ] Verify semantic HTML elements are used (main, section, article, nav)
 
 **Acceptance Criteria:**
+
 - ✅ AC7.2: All buttons have aria-label attributes
 - ✅ Character grid has role="list"
 - ✅ Heading hierarchy is correct
@@ -772,6 +857,7 @@ Add proper ARIA labels and ensure semantic HTML structure throughout the site.
 ---
 
 ### Issue #28: Test Screen Reader Compatibility
+
 **Labels:** `accessibility`, `a11y`, `screen-reader`, `high-priority`
 **Estimated Effort:** 2 hours
 **Dependencies:** #27
@@ -780,6 +866,7 @@ Add proper ARIA labels and ensure semantic HTML structure throughout the site.
 Test the site with screen readers and fix any issues.
 
 **Tasks:**
+
 - [ ] Test with NVDA (Windows)
 - [ ] Test with VoiceOver (Mac)
 - [ ] Verify all content is announced correctly
@@ -787,6 +874,7 @@ Test the site with screen readers and fix any issues.
 - [ ] Document screen reader testing results
 
 **Acceptance Criteria:**
+
 - ✅ AC7.3: All content is announced correctly
 - ✅ Headings are in logical order
 - ✅ Images have meaningful alt text
@@ -796,6 +884,7 @@ Test the site with screen readers and fix any issues.
 ---
 
 ### Issue #29: Verify Color Contrast
+
 **Labels:** `accessibility`, `a11y`, `color-contrast`
 **Estimated Effort:** 1 hour
 **Dependencies:** #10
@@ -804,12 +893,14 @@ Test the site with screen readers and fix any issues.
 Verify all text meets WCAG AA color contrast standards.
 
 **Tasks:**
+
 - [ ] Use color contrast checker on all text elements
 - [ ] Ensure WCAG AA compliance (4.5:1 ratio for normal text)
 - [ ] Fix any contrast issues
 - [ ] Document color palette with contrast ratios
 
 **Acceptance Criteria:**
+
 - ✅ AC7.4: All text has contrast ratio of at least 4.5:1
 - ✅ Interactive elements have sufficient contrast
 
@@ -818,6 +909,7 @@ Verify all text meets WCAG AA color contrast standards.
 ---
 
 ### Issue #30: Implement Reduced Motion Support
+
 **Labels:** `accessibility`, `a11y`, `reduced-motion`
 **Estimated Effort:** 2 hours
 **Dependencies:** #18, #19, #20
@@ -826,6 +918,7 @@ Verify all text meets WCAG AA color contrast standards.
 Respect user's reduced motion preference by disabling/reducing animations.
 
 **Tasks:**
+
 - [ ] Add prefers-reduced-motion media query
 - [ ] Disable/reduce animations when preference is set
 - [ ] Ensure page remains functional without animations
@@ -833,6 +926,7 @@ Respect user's reduced motion preference by disabling/reducing animations.
 - [ ] Update GSAP animations to respect preference
 
 **Acceptance Criteria:**
+
 - ✅ Animations respect prefers-reduced-motion
 - ✅ Page is fully functional without animations
 - ✅ Scroll behavior is instant instead of smooth
@@ -844,6 +938,7 @@ Respect user's reduced motion preference by disabling/reducing animations.
 ## Epic 10: Testing Implementation 🔴 CRITICAL
 
 ### Issue #31: Set Up Playwright Testing Framework
+
 **Labels:** `testing`, `setup`, `critical`
 **Estimated Effort:** 2 hours
 **Dependencies:** #2
@@ -852,6 +947,7 @@ Respect user's reduced motion preference by disabling/reducing animations.
 Set up Playwright testing framework with browser configurations.
 
 **Tasks:**
+
 - [ ] Install Playwright: `npm install -D @playwright/test`
 - [ ] Create `playwright.config.ts` with browser configurations (Chrome, Firefox, Safari)
 - [ ] Set up test directory structure (`tests/e2e/`)
@@ -859,6 +955,7 @@ Set up Playwright testing framework with browser configurations.
 - [ ] Verify Playwright installation with sample test
 
 **Acceptance Criteria:**
+
 - ✅ AC9.2: Playwright is installed and configured
 - ✅ Test scripts work correctly
 - ✅ Sample test passes
@@ -868,6 +965,7 @@ Set up Playwright testing framework with browser configurations.
 ---
 
 ### Issue #32: Write Landing Page E2E Tests
+
 **Labels:** `testing`, `e2e`, `critical`
 **Estimated Effort:** 3 hours
 **Dependencies:** #31, #17
@@ -876,6 +974,7 @@ Set up Playwright testing framework with browser configurations.
 Write E2E tests for basic page load and navigation functionality.
 
 **Tasks:**
+
 - [ ] Create `tests/e2e/landing-page.spec.ts` file
 - [ ] Test page load (Scenario 1.1)
 - [ ] Test smooth scroll navigation (Scenario 1.2)
@@ -884,6 +983,7 @@ Write E2E tests for basic page load and navigation functionality.
 - [ ] Ensure all tests pass with pristine output
 
 **Acceptance Criteria:**
+
 - ✅ AC9.1: All landing page tests pass
 - ✅ No console errors during tests
 - ✅ Test output is pristine
@@ -893,6 +993,7 @@ Write E2E tests for basic page load and navigation functionality.
 ---
 
 ### Issue #33: Write Animation E2E Tests
+
 **Labels:** `testing`, `e2e`, `animations`, `critical`
 **Estimated Effort:** 4 hours
 **Dependencies:** #31, #18, #19, #20
@@ -901,6 +1002,7 @@ Write E2E tests for basic page load and navigation functionality.
 Write E2E tests for all animations (hero, scroll, parallax).
 
 **Tasks:**
+
 - [ ] Create `tests/e2e/animations.spec.ts` file
 - [ ] Test hero entrance animation (Scenario 2.1)
 - [ ] Test parallax effect (Scenario 2.2)
@@ -909,6 +1011,7 @@ Write E2E tests for all animations (hero, scroll, parallax).
 - [ ] Ensure all tests pass with pristine output
 
 **Acceptance Criteria:**
+
 - ✅ AC9.1: All animation tests pass
 - ✅ Animations trigger correctly
 - ✅ Animation timing is verified
@@ -918,6 +1021,7 @@ Write E2E tests for all animations (hero, scroll, parallax).
 ---
 
 ### Issue #34: Write Responsive Design E2E Tests
+
 **Labels:** `testing`, `e2e`, `responsive`, `critical`
 **Estimated Effort:** 3 hours
 **Dependencies:** #31, #21, #22, #23
@@ -926,6 +1030,7 @@ Write E2E tests for all animations (hero, scroll, parallax).
 Write E2E tests for responsive design at all breakpoints.
 
 **Tasks:**
+
 - [ ] Create `tests/e2e/responsive.spec.ts` file
 - [ ] Test mobile layout at 375px (Scenario 5.1)
 - [ ] Test tablet layout at 768px (Scenario 5.2)
@@ -934,6 +1039,7 @@ Write E2E tests for responsive design at all breakpoints.
 - [ ] Ensure all tests pass with pristine output
 
 **Acceptance Criteria:**
+
 - ✅ AC9.1: All responsive tests pass
 - ✅ Layouts are correct at all breakpoints
 - ✅ Touch interactions work
@@ -943,6 +1049,7 @@ Write E2E tests for responsive design at all breakpoints.
 ---
 
 ### Issue #35: Write Accessibility E2E Tests
+
 **Labels:** `testing`, `e2e`, `accessibility`, `critical`
 **Estimated Effort:** 3 hours
 **Dependencies:** #31, #26, #27, #30
@@ -951,6 +1058,7 @@ Write E2E tests for responsive design at all breakpoints.
 Write E2E tests for accessibility features.
 
 **Tasks:**
+
 - [ ] Create `tests/e2e/accessibility.spec.ts` file
 - [ ] Test keyboard navigation (Scenario 6.1)
 - [ ] Test ARIA attributes (Scenario 6.3)
@@ -959,6 +1067,7 @@ Write E2E tests for accessibility features.
 - [ ] Ensure all tests pass with pristine output
 
 **Acceptance Criteria:**
+
 - ✅ AC9.1: All accessibility tests pass
 - ✅ Keyboard navigation works
 - ✅ ARIA attributes are correct
@@ -968,6 +1077,7 @@ Write E2E tests for accessibility features.
 ---
 
 ### Issue #36: Write Performance Tests
+
 **Labels:** `testing`, `e2e`, `performance`, `critical`
 **Estimated Effort:** 2 hours
 **Dependencies:** #31, #25
@@ -976,6 +1086,7 @@ Write E2E tests for accessibility features.
 Write E2E tests for performance budget validation.
 
 **Tasks:**
+
 - [ ] Create `tests/e2e/performance.spec.ts` file
 - [ ] Test performance budget (FCP, LCP, TBT, CLS) - Scenario 7.1
 - [ ] Test image optimization - Scenario 7.2
@@ -984,6 +1095,7 @@ Write E2E tests for performance budget validation.
 - [ ] Ensure all tests pass with pristine output
 
 **Acceptance Criteria:**
+
 - ✅ AC8.1: FCP < 1.5s, LCP < 2.5s, TBT < 200ms, CLS < 0.1
 - ✅ Images are optimized
 - ✅ JS bundle < 100KB gzipped
@@ -996,6 +1108,7 @@ Write E2E tests for performance budget validation.
 ## Epic 11: Security & Deployment 🟠 HIGH
 
 ### Issue #37: Configure Security Headers
+
 **Labels:** `security`, `deployment`, `high-priority`
 **Estimated Effort:** 2 hours
 **Dependencies:** #17
@@ -1004,6 +1117,7 @@ Write E2E tests for performance budget validation.
 Configure security headers for production deployment (CSP, X-Frame-Options, HSTS).
 
 **Tasks:**
+
 - [ ] Create `netlify.toml` configuration file
 - [ ] Set up Content Security Policy (CSP)
 - [ ] Configure X-Frame-Options: DENY
@@ -1013,6 +1127,7 @@ Configure security headers for production deployment (CSP, X-Frame-Options, HSTS
 - [ ] Test headers locally with Netlify CLI
 
 **Security Headers:**
+
 ```toml
 [[headers]]
   for = "/*"
@@ -1026,6 +1141,7 @@ Configure security headers for production deployment (CSP, X-Frame-Options, HSTS
 ```
 
 **Acceptance Criteria:**
+
 - ✅ AC10.1: All security headers are configured
 - ✅ CSP is properly set
 - ✅ Headers work in Netlify deployment
@@ -1036,6 +1152,7 @@ Configure security headers for production deployment (CSP, X-Frame-Options, HSTS
 ---
 
 ### Issue #38: Audit Dependencies for Vulnerabilities
+
 **Labels:** `security`, `dependencies`, `high-priority`
 **Estimated Effort:** 2 hours
 **Dependencies:** #2
@@ -1044,6 +1161,7 @@ Configure security headers for production deployment (CSP, X-Frame-Options, HSTS
 Audit all dependencies for vulnerabilities and fix high/critical issues.
 
 **Tasks:**
+
 - [ ] Run `npm audit` and review results
 - [ ] Fix all HIGH and CRITICAL vulnerabilities
 - [ ] Pin dependency versions in package.json (remove ^ and ~)
@@ -1051,6 +1169,7 @@ Audit all dependencies for vulnerabilities and fix high/critical issues.
 - [ ] Document dependency update process in README
 
 **Acceptance Criteria:**
+
 - ✅ AC10.2: Zero high/critical vulnerabilities
 - ✅ Dependencies are pinned
 - ✅ Automated updates are configured
@@ -1060,6 +1179,7 @@ Audit all dependencies for vulnerabilities and fix high/critical issues.
 ---
 
 ### Issue #39: Optimize Production Build
+
 **Labels:** `deployment`, `optimization`, `high-priority`
 **Estimated Effort:** 2 hours
 **Dependencies:** #17
@@ -1068,6 +1188,7 @@ Audit all dependencies for vulnerabilities and fix high/critical issues.
 Configure Astro for optimized production build.
 
 **Tasks:**
+
 - [ ] Configure Astro for production build in `astro.config.mjs`
 - [ ] Disable source maps in production
 - [ ] Minify CSS and JavaScript
@@ -1076,6 +1197,7 @@ Configure Astro for optimized production build.
 - [ ] Verify all features work in production build
 
 **Acceptance Criteria:**
+
 - ✅ AC11.1: Production build succeeds without errors
 - ✅ AC11.2: Preview build works correctly
 - ✅ Bundle sizes meet budget
@@ -1083,6 +1205,7 @@ Configure Astro for optimized production build.
 ---
 
 ### Issue #40: Set Up CI/CD Pipeline
+
 **Labels:** `deployment`, `ci-cd`, `high-priority`
 **Estimated Effort:** 3 hours
 **Dependencies:** #32, #33, #34, #35, #36
@@ -1091,6 +1214,7 @@ Configure Astro for optimized production build.
 Set up GitHub Actions CI/CD pipeline for automated testing and deployment.
 
 **Tasks:**
+
 - [ ] Create `.github/workflows/ci.yml` file
 - [ ] Run tests on every PR (`npm test`)
 - [ ] Run build on every PR (`npm run build`)
@@ -1100,6 +1224,7 @@ Set up GitHub Actions CI/CD pipeline for automated testing and deployment.
 - [ ] Add status badges to README
 
 **Acceptance Criteria:**
+
 - ✅ CI/CD pipeline runs successfully
 - ✅ Tests run on every PR
 - ✅ Preview deployments work
@@ -1107,6 +1232,7 @@ Set up GitHub Actions CI/CD pipeline for automated testing and deployment.
 ---
 
 ### Issue #41: Deploy to Production (Netlify)
+
 **Labels:** `deployment`, `production`, `high-priority`
 **Estimated Effort:** 2 hours
 **Dependencies:** #39, #40
@@ -1115,6 +1241,7 @@ Set up GitHub Actions CI/CD pipeline for automated testing and deployment.
 Deploy the Final Fantasy VIII landing page to Netlify production.
 
 **Tasks:**
+
 - [ ] Create Netlify account (if not already created)
 - [ ] Connect GitHub repository to Netlify
 - [ ] Configure build settings (command: `npm run build`, publish: `dist`)
@@ -1126,6 +1253,7 @@ Deploy the Final Fantasy VIII landing page to Netlify production.
 - [ ] Verify all features work in production
 
 **Acceptance Criteria:**
+
 - ✅ Site is live and accessible via HTTPS
 - ✅ Security headers are configured correctly
 - ✅ All features work in production
@@ -1139,6 +1267,7 @@ Deploy the Final Fantasy VIII landing page to Netlify production.
 ## Epic 12: Final Polish & Documentation 🟢 LOW
 
 ### Issue #42: Source Fan Art/Creative Commons Images
+
 **Labels:** `assets`, `content`, `medium-priority`
 **Estimated Effort:** 3 hours (increased from 2 hours)
 **Dependencies:** #11, #13
@@ -1147,6 +1276,7 @@ Deploy the Final Fantasy VIII landing page to Netlify production.
 Research and source Creative Commons or fan-created FF VIII character artwork.
 
 **Tasks:**
+
 - [ ] Research Creative Commons FF VIII artwork on DeviantArt, ArtStation
 - [ ] Source fan art with appropriate licenses (CC BY, CC BY-SA)
 - [ ] Contact artists for permission if needed
@@ -1157,11 +1287,13 @@ Research and source Creative Commons or fan-created FF VIII character artwork.
 - [ ] Ensure legal compliance
 
 **Image Requirements:**
+
 - 6 character images (one for each main character)
 - 1-2 background images for hero section
 - All images must be legally usable (Creative Commons or with permission)
 
 **Acceptance Criteria:**
+
 - ✅ All images display correctly
 - ✅ Images are legally compliant
 - ✅ CREDITS.md file exists with proper attributions
@@ -1173,6 +1305,7 @@ Research and source Creative Commons or fan-created FF VIII character artwork.
 ---
 
 ### Issue #43: Write Project README
+
 **Labels:** `documentation`, `low-priority`
 **Estimated Effort:** 2 hours
 **Dependencies:** #41
@@ -1181,6 +1314,7 @@ Research and source Creative Commons or fan-created FF VIII character artwork.
 Write comprehensive project README with setup instructions and documentation.
 
 **Tasks:**
+
 - [ ] Document project overview and features
 - [ ] Document setup instructions (`npm install`, `npm run dev`)
 - [ ] Document development commands (dev, build, preview, test)
@@ -1191,6 +1325,7 @@ Write comprehensive project README with setup instructions and documentation.
 - [ ] Add license information
 
 **Acceptance Criteria:**
+
 - ✅ README is comprehensive and clear
 - ✅ Setup instructions are accurate
 - ✅ Screenshots are included
@@ -1198,6 +1333,7 @@ Write comprehensive project README with setup instructions and documentation.
 ---
 
 ### Issue #44: Final QA and Bug Fixes
+
 **Labels:** `qa`, `bug-fix`, `low-priority`
 **Estimated Effort:** 4 hours
 **Dependencies:** All previous issues
@@ -1206,6 +1342,7 @@ Write comprehensive project README with setup instructions and documentation.
 Perform final quality assurance and fix any remaining bugs.
 
 **Tasks:**
+
 - [ ] Run all tests and ensure they pass (`npm test`)
 - [ ] Test on multiple browsers (Chrome, Firefox, Safari)
 - [ ] Test on multiple devices (mobile, tablet, desktop)
@@ -1217,6 +1354,7 @@ Perform final quality assurance and fix any remaining bugs.
 - [ ] Final code review
 
 **Acceptance Criteria:**
+
 - ✅ All acceptance criteria met (AC1-AC11)
 - ✅ All tests pass with pristine output
 - ✅ Lighthouse scores: Performance ≥ 90, Accessibility = 100
@@ -1225,6 +1363,7 @@ Perform final quality assurance and fix any remaining bugs.
 ---
 
 ### Issue #45: Create Image Attribution System
+
 **Labels:** `legal`, `content`, `medium-priority`
 **Estimated Effort:** 1 hour
 **Dependencies:** #42
@@ -1233,6 +1372,7 @@ Perform final quality assurance and fix any remaining bugs.
 Create an attribution system for fan art to ensure legal compliance.
 
 **Tasks:**
+
 - [ ] Add attribution footer to landing page
 - [ ] Create dedicated credits page (optional)
 - [ ] Ensure compliance with Creative Commons licenses
@@ -1240,6 +1380,7 @@ Create an attribution system for fan art to ensure legal compliance.
 - [ ] Document attribution requirements in CREDITS.md
 
 **Acceptance Criteria:**
+
 - ✅ Attribution system is in place
 - ✅ All fan art is properly credited
 - ✅ Legal compliance is ensured
@@ -1254,12 +1395,14 @@ Create an attribution system for fan art to ensure legal compliance.
 **Total Estimated Effort:** ~112 hours (approximately 3-4 weeks for a single developer)
 
 ### Priority Breakdown:
+
 - 🔴 **CRITICAL (7 issues):** Project setup, testing framework, E2E tests
 - 🟠 **HIGH (21 issues):** Data layer, components, accessibility, security, deployment
 - 🟡 **MEDIUM (14 issues):** Animations, responsive design, polish, image sourcing
 - 🟢 **LOW (3 issues):** Documentation, final QA
 
 ### Epic Breakdown:
+
 1. **Epic 1:** Project Foundation (3 issues, 4 hours)
 2. **Epic 2:** Data Layer (4 issues, 6 hours)
 3. **Epic 3:** Base Components & Layout (3 issues, 7 hours)
@@ -1274,6 +1417,7 @@ Create an attribution system for fan art to ensure legal compliance.
 12. **Epic 12:** Final Polish (3 issues, 10 hours)
 
 ### Implementation Timeline (4-week plan):
+
 - **Week 1:** Epics 1-3 (Foundation, Data, Base Components)
 - **Week 2:** Epics 4-7 (Characters, Sections, Page Assembly, Animations)
 - **Week 3:** Epics 8-10 (Responsive, Accessibility, Testing)
@@ -1293,4 +1437,3 @@ Create an attribution system for fan art to ensure legal compliance.
 **Document Status:** ✅ COMPLETE
 **Last Updated:** 2025-11-11
 **Approved By:** Daniel
-

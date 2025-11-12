@@ -1,4 +1,5 @@
 # Test Strategy Plan
+
 **Agent:** @test-strategy-planner  
 **Feature:** Final Fantasy VIII Landing Page  
 **Date:** 2025-11-11
@@ -12,6 +13,7 @@
 **Stack:** Astro + TypeScript + GSAP
 
 **Testing Requirements:**
+
 - E2E tests MUST verify animations trigger correctly
 - E2E tests MUST verify responsive behavior at all breakpoints
 - E2E tests MUST verify accessibility (keyboard navigation, ARIA)
@@ -34,6 +36,7 @@
 ### Feature 1: Page Load and Navigation
 
 #### Scenario 1.1: Initial Page Load
+
 ```gherkin
 Given I am a user visiting the landing page
 When the page loads
@@ -44,6 +47,7 @@ And there should be no console errors
 ```
 
 #### Scenario 1.2: Smooth Scroll Navigation
+
 ```gherkin
 Given I am on the landing page
 When I click the "Explore the Story" button
@@ -53,6 +57,7 @@ And the URL hash should update to "#characters"
 ```
 
 #### Scenario 1.3: Section Visibility
+
 ```gherkin
 Given I am on the landing page
 When the page fully loads
@@ -67,6 +72,7 @@ And I should see the footer
 ### Feature 2: Hero Section Animations
 
 #### Scenario 2.1: Hero Entrance Animation
+
 ```gherkin
 Given I am a user visiting the landing page for the first time
 When the page loads
@@ -77,6 +83,7 @@ And the entire sequence should complete within 2 seconds
 ```
 
 #### Scenario 2.2: Parallax Background Effect
+
 ```gherkin
 Given I am on the landing page
 When I scroll down the page
@@ -89,6 +96,7 @@ And the parallax effect should be smooth without jank
 ### Feature 3: Characters Section
 
 #### Scenario 3.1: Character Cards Display
+
 ```gherkin
 Given I am viewing the characters section
 When the section is visible
@@ -100,6 +108,7 @@ And each card should display weapon and limit break information
 ```
 
 #### Scenario 3.2: Character Card Hover Effect
+
 ```gherkin
 Given I am viewing a character card
 When I hover over the card
@@ -109,6 +118,7 @@ And the transition should be smooth (no jank)
 ```
 
 #### Scenario 3.3: Character Data Integrity
+
 ```gherkin
 Given the characters data is loaded
 When I inspect each character card
@@ -119,6 +129,7 @@ And all character data should match the source data file
 ```
 
 #### Scenario 3.4: Scroll-Triggered Fade-In
+
 ```gherkin
 Given I am at the top of the page
 When I scroll down to the characters section
@@ -132,6 +143,7 @@ And the animation should trigger when the section is 20% visible
 ### Feature 4: Game Details Section
 
 #### Scenario 4.1: Synopsis Display
+
 ```gherkin
 Given I am viewing the game details section
 When the section is visible
@@ -141,6 +153,7 @@ And the synopsis should be centered and readable
 ```
 
 #### Scenario 4.2: Features Grid Display
+
 ```gherkin
 Given I am viewing the game details section
 When I scroll to the features subsection
@@ -150,6 +163,7 @@ And the features should be displayed in a responsive grid
 ```
 
 #### Scenario 4.3: Mechanics Grid Display
+
 ```gherkin
 Given I am viewing the game details section
 When I scroll to the mechanics subsection
@@ -163,6 +177,7 @@ And the mechanics should be displayed in a 2-column grid on desktop
 ### Feature 5: Responsive Design
 
 #### Scenario 5.1: Mobile Layout (375px width)
+
 ```gherkin
 Given I am viewing the page on a mobile device (375px width)
 When the page loads
@@ -174,6 +189,7 @@ And all images should fit within the viewport
 ```
 
 #### Scenario 5.2: Tablet Layout (768px width)
+
 ```gherkin
 Given I am viewing the page on a tablet (768px width)
 When the page loads
@@ -184,6 +200,7 @@ And all content should be properly spaced
 ```
 
 #### Scenario 5.3: Desktop Layout (1280px width)
+
 ```gherkin
 Given I am viewing the page on a desktop (1280px width)
 When the page loads
@@ -194,6 +211,7 @@ And the container should have a maximum width
 ```
 
 #### Scenario 5.4: Touch Interactions on Mobile
+
 ```gherkin
 Given I am on a mobile device
 When I tap on a character card
@@ -206,6 +224,7 @@ And the card should be tappable without issues
 ### Feature 6: Accessibility
 
 #### Scenario 6.1: Keyboard Navigation
+
 ```gherkin
 Given I am a keyboard user
 When I press the Tab key repeatedly
@@ -215,6 +234,7 @@ And the tab order should be logical (top to bottom, left to right)
 ```
 
 #### Scenario 6.2: Screen Reader Support
+
 ```gherkin
 Given I am using a screen reader
 When I navigate the page
@@ -225,6 +245,7 @@ And section headings should be properly announced
 ```
 
 #### Scenario 6.3: ARIA Attributes
+
 ```gherkin
 Given I inspect the page HTML
 When I check interactive elements
@@ -235,6 +256,7 @@ And all form controls (if any) should have aria-describedby
 ```
 
 #### Scenario 6.4: Color Contrast
+
 ```gherkin
 Given I am viewing the page
 When I check color contrast ratios
@@ -244,6 +266,7 @@ And focus indicators should be clearly visible
 ```
 
 #### Scenario 6.5: Reduced Motion Preference
+
 ```gherkin
 Given I have enabled "prefers-reduced-motion" in my OS
 When I visit the landing page
@@ -257,6 +280,7 @@ And scroll behavior should be instant instead of smooth
 ### Feature 7: Performance
 
 #### Scenario 7.1: Performance Budget Compliance
+
 ```gherkin
 Given I load the landing page
 When I measure performance metrics
@@ -267,6 +291,7 @@ And Cumulative Layout Shift (CLS) should be less than 0.1
 ```
 
 #### Scenario 7.2: Image Optimization
+
 ```gherkin
 Given I inspect the page's network requests
 When I check image assets
@@ -276,6 +301,7 @@ And images should be lazy-loaded (except above-the-fold)
 ```
 
 #### Scenario 7.3: JavaScript Bundle Size
+
 ```gherkin
 Given I inspect the page's network requests
 When I check JavaScript files
@@ -289,6 +315,7 @@ And no unused JavaScript should be shipped
 ### Feature 8: Error Handling
 
 #### Scenario 8.1: Missing Character Image
+
 ```gherkin
 Given a character has an invalid image URL
 When the page loads
@@ -298,6 +325,7 @@ And no console errors should appear
 ```
 
 #### Scenario 8.2: Missing Data
+
 ```gherkin
 Given the characters data file is empty
 When the page loads
@@ -311,6 +339,7 @@ And the page should not crash
 ### Feature 9: Cross-Browser Compatibility
 
 #### Scenario 9.1: Chrome/Edge Compatibility
+
 ```gherkin
 Given I am using Chrome or Edge browser
 When I visit the landing page
@@ -319,6 +348,7 @@ And all animations should run smoothly
 ```
 
 #### Scenario 9.2: Firefox Compatibility
+
 ```gherkin
 Given I am using Firefox browser
 When I visit the landing page
@@ -327,6 +357,7 @@ And all animations should run smoothly
 ```
 
 #### Scenario 9.3: Safari Compatibility
+
 ```gherkin
 Given I am using Safari browser
 When I visit the landing page
@@ -340,6 +371,7 @@ And WebP images should have fallbacks if needed
 ## Edge Cases
 
 ### Edge Case 1: Very Slow Network
+
 ```gherkin
 Given I am on a slow 3G connection
 When I load the page
@@ -349,6 +381,7 @@ And the page should remain usable during loading
 ```
 
 ### Edge Case 2: JavaScript Disabled
+
 ```gherkin
 Given I have JavaScript disabled
 When I visit the landing page
@@ -358,6 +391,7 @@ And navigation should still work (anchor links)
 ```
 
 ### Edge Case 3: Extremely Large Viewport
+
 ```gherkin
 Given I am viewing on a 4K monitor (3840px width)
 When the page loads
@@ -367,6 +401,7 @@ And images should maintain aspect ratio
 ```
 
 ### Edge Case 4: Extremely Small Viewport
+
 ```gherkin
 Given I am viewing on a very small device (320px width)
 When the page loads
@@ -392,4 +427,3 @@ The following test files should be created by @implementation-test-engineer:
 **Status:** ✅ Plan Complete  
 **Total Scenarios:** 35+ test scenarios covering all critical paths  
 **Compliance:** 100% aligned with CLAUDE.md testing requirements
-

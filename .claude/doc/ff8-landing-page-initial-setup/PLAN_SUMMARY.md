@@ -14,6 +14,7 @@ This document summarizes the comprehensive project plan for the Final Fantasy VI
 Create a visually striking, single-page website dedicated to Final Fantasy VIII featuring modern animations (smooth scrolling, fade-ins, hover effects, parallax), responsive design, character profiles, and comprehensive game details.
 
 **Total Scope:**
+
 - 45 GitHub Issues across 12 Epics
 - ~112 hours estimated effort (3-4 weeks for single developer)
 - 7 agents consulted for comprehensive planning
@@ -47,6 +48,7 @@ Create a visually striking, single-page website dedicated to Final Fantasy VIII 
 ## Project Architecture
 
 ### Folder Structure
+
 ```
 src/
   components/
@@ -63,6 +65,7 @@ tests/e2e/              # Playwright tests
 ```
 
 ### Path Aliases
+
 - `@components/*` → `./src/components/*`
 - `@layouts/*` → `./src/layouts/*`
 - `@data/*` → `./src/data/*`
@@ -75,50 +78,62 @@ tests/e2e/              # Playwright tests
 ## 12 Epics Overview
 
 ### Epic 1: Project Foundation 🔴 CRITICAL
+
 **Issues:** #1-3 | **Effort:** 4 hours  
 Initialize Astro project, install dependencies, set up project structure.
 
 ### Epic 2: Data Layer Implementation 🟠 HIGH
+
 **Issues:** #4-7 | **Effort:** 6 hours  
 Define TypeScript interfaces, implement character data (6 characters), game details data, validation utilities.
 
 ### Epic 3: Base Components & Layout 🟠 HIGH
+
 **Issues:** #8-10 | **Effort:** 7 hours  
 Create BaseLayout, UI components (Container, Card, Button), global styles with modern dark mode palette.
 
 ### Epic 4: Character Components 🟠 HIGH
+
 **Issues:** #11-12 | **Effort:** 5 hours  
 Create CharacterCard with hover effects, CharacterGrid with responsive layout (1/2/3 columns).
 
 ### Epic 5: Section Components 🟠 HIGH
+
 **Issues:** #13-16 | **Effort:** 9 hours  
 Create HeroSection, CharactersSection, GameDetailsSection, Footer.
 
 ### Epic 6: Main Page Assembly 🟠 HIGH
+
 **Issues:** #17 | **Effort:** 2 hours  
 Assemble landing page by importing all sections and data.
 
 ### Epic 7: Animation Implementation 🟡 MEDIUM
+
 **Issues:** #18-20 | **Effort:** 9 hours  
 Implement bold hero animations (1.2s duration), scroll animations (1.0s duration, 40px slide-up), parallax effect (0.5x speed).
 
 ### Epic 8: Responsive Design & Polish 🟡 MEDIUM
+
 **Issues:** #21-25 | **Effort:** 12 hours  
 Implement mobile/tablet/desktop responsive design, hover effects, image optimization with Astro Image component.
 
 ### Epic 9: Accessibility Implementation 🟠 HIGH
+
 **Issues:** #26-30 | **Effort:** 9 hours  
 Implement keyboard navigation, ARIA labels, screen reader support, color contrast verification, reduced motion support.
 
 ### Epic 10: Testing Implementation 🔴 CRITICAL
+
 **Issues:** #31-36 | **Effort:** 17 hours  
 Set up Playwright, write E2E tests for landing page, animations, responsive design, accessibility, performance.
 
 ### Epic 11: Security & Deployment 🟠 HIGH
+
 **Issues:** #37-41 | **Effort:** 11 hours  
 Configure security headers (CSP, HSTS), audit dependencies, optimize production build, set up CI/CD, deploy to Netlify.
 
 ### Epic 12: Final Polish & Documentation 🟢 LOW
+
 **Issues:** #42-45 | **Effort:** 10 hours  
 Source fan art images, create attribution system, write README, final QA and bug fixes.
 
@@ -127,6 +142,7 @@ Source fan art images, create attribution system, write README, final QA and bug
 ## Key Features
 
 ### 1. Character Profiles (6 Main Characters)
+
 - Squall Leonhart
 - Rinoa Heartilly
 - Quistis Trepe
@@ -135,6 +151,7 @@ Source fan art images, create attribution system, write README, final QA and bug
 - Irvine Kinneas
 
 Each character card displays:
+
 - Character image (fan art with attribution)
 - Name and role
 - Description
@@ -143,22 +160,26 @@ Each character card displays:
 - Optional quote
 
 ### 2. Game Details
+
 - Synopsis (2-3 paragraphs)
 - 4 Key Features (Junction System, Triple Triad, SeeD Mercenaries, Epic Story)
 - 4 Main Mechanics (Draw System, GF System, Limit Breaks, Level Scaling)
 - Release information
 
 ### 3. Bold Animations (GSAP)
+
 - **Hero Entrance:** 1.2s title fade-in, 1.0s tagline with scale, bounce CTA button
 - **Scroll Animations:** 1.0s fade-ins with 40px slide-up, staggered by 0.2s
 - **Parallax:** 0.5x background movement speed, ±2° rotation
 
 ### 4. Responsive Design
+
 - **Mobile (375px):** 1-column layout
 - **Tablet (768px):** 2-column layout
 - **Desktop (1280px+):** 3-column layout
 
 ### 5. Accessibility (WCAG AA)
+
 - Keyboard navigation
 - ARIA labels and semantic HTML
 - Screen reader support
@@ -182,6 +203,7 @@ Each character card displays:
 ## Testing Coverage
 
 ### E2E Tests (Playwright)
+
 - **Landing Page Tests:** Page load, navigation, section visibility, data display
 - **Animation Tests:** Hero animations, scroll animations, parallax effect
 - **Responsive Tests:** Mobile, tablet, desktop layouts, touch interactions
@@ -205,6 +227,7 @@ Each character card displays:
 ## Implementation Timeline (4-Week Plan)
 
 ### Week 1: Foundation & Core Components
+
 - **Days 1-2:** Epic 1 (Project Foundation)
 - **Days 3-4:** Epic 2 (Data Layer)
 - **Days 5-7:** Epic 3 (Base Components & Layout)
@@ -214,6 +237,7 @@ Each character card displays:
 ---
 
 ### Week 2: Components & Animations
+
 - **Days 8-9:** Epic 4 (Character Components)
 - **Days 10-11:** Epic 5 (Section Components)
 - **Day 12:** Epic 6 (Main Page Assembly)
@@ -224,6 +248,7 @@ Each character card displays:
 ---
 
 ### Week 3: Polish & Testing
+
 - **Days 15-17:** Epic 8 (Responsive Design & Polish)
 - **Days 18-19:** Epic 9 (Accessibility Implementation)
 - **Days 20-21:** Epic 10 (Testing Implementation)
@@ -233,6 +258,7 @@ Each character card displays:
 ---
 
 ### Week 4: Deployment & Final QA
+
 - **Days 22-24:** Epic 11 (Security & Deployment)
 - **Days 25-28:** Epic 12 (Final Polish & Documentation)
 
@@ -284,4 +310,3 @@ Each character card displays:
 **Plan Status:** ✅ APPROVED AND READY FOR IMPLEMENTATION  
 **Approved By:** Daniel  
 **Date:** 2025-11-11
-
